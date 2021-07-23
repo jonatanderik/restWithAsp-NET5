@@ -9,16 +9,16 @@ namespace RestWithAsp_net5.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class calculatorController : ControllerBase
+    public class CalculatorController : ControllerBase
     {
         private static readonly string[] Summaries = new[]
         {
             "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
         };
 
-        private readonly ILogger<calculatorController> _logger;
+        private readonly ILogger<CalculatorController> _logger;
 
-        public calculatorController(ILogger<calculatorController> logger)
+        public CalculatorController(ILogger<CalculatorController> logger)
         {
             _logger = logger;
         }
@@ -46,7 +46,7 @@ namespace RestWithAsp_net5.Controllers
         }
 
         [HttpGet("mult/{firstNumber}/{secondNumber}")]
-        public IActionResult mult(string firstNumber, string secondNumber)
+        public IActionResult Mult(string firstNumber, string secondNumber)
         {
             if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
@@ -57,7 +57,7 @@ namespace RestWithAsp_net5.Controllers
         }
 
         [HttpGet("div/{firstNumber}/{secondNumber}")]
-        public IActionResult div(string firstNumber, string secondNumber)
+        public IActionResult Div(string firstNumber, string secondNumber)
         {
             if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
@@ -68,7 +68,7 @@ namespace RestWithAsp_net5.Controllers
         }
 
         [HttpGet("med/{firstNumber}/{secondNumber}")]
-        public IActionResult med(string firstNumber, string secondNumber)
+        public IActionResult Med(string firstNumber, string secondNumber)
         {
             if (IsNumeric(firstNumber) && IsNumeric(secondNumber))
             {
@@ -79,7 +79,7 @@ namespace RestWithAsp_net5.Controllers
         }
 
         [HttpGet("raiz/{firstNumber}")]
-        public IActionResult raiz(string firstNumber)
+        public IActionResult Raiz(string firstNumber, string secondNumber)
         {
             if (IsNumeric(firstNumber))
             {
@@ -109,5 +109,6 @@ namespace RestWithAsp_net5.Controllers
             }
             return 0;
         }
+
     }
 }
